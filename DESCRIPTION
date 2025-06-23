@@ -1,0 +1,17 @@
+Package: storytelling
+Title: Create and Illustrate Stories with AI
+Version: 0.0.0.9000
+Authors@R: 
+    person("Umair", "Durrani", , "umairdurrani@outlook.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-7235-1155"))
+Description: `storyteling` provides functions to generate, illustrate, and narrate fictional stories using AI models.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports: 
+    ellmer,
+    httr2,
+    lexicon,
+    quarto,
+    stringr
