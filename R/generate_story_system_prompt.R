@@ -6,6 +6,9 @@
 #'
 #' @returns System prompt as a string
 #' @export
+#'
+#' @examples
+#' generate_story_system_prompt("romance", "Story Circle", 5)
 generate_story_system_prompt <- function(
     genre = c(
       "romance", "horror", "scifi", "mystery", "thriller",

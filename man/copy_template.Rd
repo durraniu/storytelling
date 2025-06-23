@@ -17,3 +17,9 @@ Copies a QMD file and provide the path to the destination directory
 \description{
 Copy QMD Revealjs template file to a directory for use with \code{create_slides}
 }
+\examples{
+\dontrun{
+library(storytelling)
+copy_template("your-path")
+}
+}

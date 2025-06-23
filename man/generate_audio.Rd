@@ -7,11 +7,19 @@
 generate_audio(story)
 }
 \arguments{
-\item{text}{Vector of story text}
+\item{story}{Vector of story text}
 }
 \value{
 List of audio in binary.
 }
 \description{
 Get audio from story
+}
+\examples{
+\dontrun{
+library(storytelling)
+user_prompt <- "Tell me a story about a dragon who turned into a human."
+story <- generate_story(user_prompt)
+audios <- generate_audio(story)
+}
 }

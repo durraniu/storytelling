@@ -4,7 +4,7 @@
 \alias{generate_image_prompts_system_prompt}
 \title{Generate the System Prompt for the Client that will write the prompts for generating images}
 \usage{
-generate_image_prompts_system_prompt(num_paras = 5)
+generate_image_prompts_system_prompt(num_paras)
 }
 \arguments{
 \item{num_paras}{Integer. Number of paragraphs in the story}

@@ -46,10 +46,18 @@ get_raw_audio <- function(res){
 
 #' Get audio from story
 #'
-#' @param text Vector of story text
+#' @param story Vector of story text
 #'
 #' @returns List of audio in binary.
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' library(storytelling)
+#' user_prompt <- "Tell me a story about a dragon who turned into a human."
+#' story <- generate_story(user_prompt)
+#' audios <- generate_audio(story)
+#' }
 generate_audio <- function(story){
   if (is.null(story) || length(story) == 0) {
     return(NULL)

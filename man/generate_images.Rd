@@ -36,10 +36,11 @@ Get all images corresponding to prompts
 \href{https://developers.cloudflare.com/workers-ai/get-started/rest-api/}{Follow these instructions} to get the account ID and API key.
 }
 \examples{
+\dontrun{
 library(storytelling)
 user_prompt <- "Tell me a story of a boy who learned to fly."
 story <- generate_story(user_prompt)
 image_prompts <- generate_image_prompts(story)
 all_images <- generate_images(image_prompts, style = "ethereal_fantasy")
-magick::image_read(all_images[[1]])
+}
 }

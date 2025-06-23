@@ -5,6 +5,12 @@
 #'
 #' @returns Copies a QMD file and provide the path to the destination directory
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' library(storytelling)
+#' copy_template("your-path")
+#' }
 copy_template <- function(dest_dir, audio = FALSE) {
   if (audio){
     src <- system.file("templates/input_with_audio.qmd", package = "storytelling")
@@ -31,6 +37,24 @@ copy_template <- function(dest_dir, audio = FALSE) {
 #'
 #' @returns Quarto revealjs slides
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' library(storytelling)
+#' user_prompt <- "Tell me a story about a dragon who turned into a human."
+#' story <- generate_story(user_prompt)
+#' image_prompts <- generate_image_prompts(story)
+#' all_images <- generate_images(image_prompts, style = "ethereal_fantasy")
+#' path <- copy_template("your-path")
+#' create_slides(
+#'  input_qmd = path,
+#'  theme = "beige",
+#'  title = "Dragon Becomes Human",
+#'  story = story,
+#'  images = all_images,
+#'  audios = FALSE
+#')
+#' }
 create_slides <- function(input_qmd,
                           theme = c("dark", "beige", "blood", "league", "moon", "night",
                                     "serif", "simple", "sky", "solarized", "default"),

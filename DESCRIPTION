@@ -7,9 +7,11 @@ Authors@R:
 Description: `storyteling` provides functions to generate, illustrate, and narrate fictional stories using AI models.
 License: MIT + file LICENSE
 Encoding: UTF-8
+Depends: R (>= 4.1.0)
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Imports: 
+    base64enc,
     ellmer,
     httr2,
     lexicon,

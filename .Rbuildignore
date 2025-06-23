@@ -1,3 +1,5 @@
 ^storytelling\.Rproj$
 ^\.Rproj\.user$
 ^README\.Rmd$
+^\\.dev$
+^LICENSE\.md$

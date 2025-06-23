@@ -25,3 +25,6 @@ System prompt as a string
 \description{
 Generate System Prompt for Client that generates Stories
 }
+\examples{
+generate_story_system_prompt("romance", "Story Circle", 5)
+}

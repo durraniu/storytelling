@@ -3,7 +3,7 @@
 #' @param num_paras Integer. Number of paragraphs in the story
 #'
 #' @returns String containing system prompt
-generate_image_prompts_system_prompt <- function(num_paras = 5) {
+generate_image_prompts_system_prompt <- function(num_paras) {
   paste0(
     "You write detailed prompts for generating images when story text is provided to you. The story contains ",
     num_paras, " paragraphs.

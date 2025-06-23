@@ -7,8 +7,7 @@
 generate_story(
   user_prompt,
   num_paras = 5,
-  system_prompt = generate_story_system_prompt(genre = "adventure", struc =
-    "Hero's Journey", num_paras = num_paras),
+  system_prompt = NULL,
   chat_fn = ellmer::chat_google_gemini,
   model = "gemini-2.0-flash",
   ...
@@ -19,7 +18,7 @@ generate_story(
 
 \item{num_paras}{Integer. Number of paragraphs in the generated story. Default is 5}
 
-\item{system_prompt}{Character. System prompt for the client that generates stories. Default system prompt is created with the function \code{storytelling::generate_story_system_prompt} that instructs the LLM to create an adventure story in a Hero's Journey structure}
+\item{system_prompt}{Character. System prompt for the client that generates stories. Default value is \code{NULL} that will create a system prompt with the function \code{storytelling::generate_story_system_prompt} that instructs the LLM to create an adventure story in a Hero's Journey structure}
 
 \item{chat_fn}{Ellmer client function. Default is \code{ellmer::chat_google_gemini}}
 
@@ -34,6 +33,7 @@ Character vector containing story text of length equal to \code{num_paras}
 Generate a Fictional Story with LLM
 }
 \examples{
+\dontrun{
 library(storytelling)
 user_prompt <- "Tell me a story of a boy who learned to fly."
 generate_story(user_prompt)
@@ -41,6 +41,7 @@ generate_story(user_prompt, 10)
 generate_story(user_prompt, 10, system_prompt = generate_story_system_prompt(
   genre = "thriller",
   struc = "Freytag's Pyramid",
-  num_paras = num_paras
+  num_paras = 10
 ))
+}
 }

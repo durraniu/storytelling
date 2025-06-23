@@ -15,12 +15,13 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' library(storytelling)
 #' user_prompt <- "Tell me a story of a boy who learned to fly."
 #' story <- generate_story(user_prompt)
 #' image_prompts <- generate_image_prompts(story)
 #' all_images <- generate_images(image_prompts, style = "ethereal_fantasy")
-#' magick::image_read(all_images[[1]])
+#' }
 generate_images <- function(image_prompts,
                             style = c(
   "anime", "comics", "lego_movie", "play_doh", "ethereal_fantasy", "isometric",

@@ -7,15 +7,17 @@
 
 <!-- badges: end -->
 
-{storytelling} is an R package that provide functions to use various Web
-APIs to:
+{storytelling} is an R package that provides functions to use various
+Web APIs to:
 
 - Generate fictional stories (`generate_story()`)  
 - Generate image prompts based on a story (`generate_image_prompts()`)  
 - Generate images based on the image prompts (`generate_images()`)  
-- Generate audio from story text (`generate_audio`)  
+- Generate audios (speech) from story text (`generate_audio()`)  
 - Combine story text, images, and audio in a nice revealjs slide deck
-  using Quarto (`create_slides`)
+  using Quarto (`create_slides()`)
+
+Under the hood, {storytime} uses {ellmer} and {httr2}.
 
 ## Installation
 
@@ -27,10 +29,18 @@ You can install the development version of storytelling from
 pak::pak("durraniu/storytelling")
 ```
 
-## Example
+## Getting Started
 
-Following is an example workflow to create a story slide deck with
-audio:
+You need Cloudflare account ID and API key for generating images.[Follow
+these
+instructions](https://developers.cloudflare.com/workers-ai/get-started/rest-api/)
+to get the account ID and API key. Moreover, you need an API key for any
+provider that {ellmer} supports. Put all the keys in your `.Renviron`
+file.
+
+### Example
+
+Following is an example workflow to create a story slide deck:
 
 ``` r
 library(storytelling)
