@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# storytelling
+# storytelling <img src="man/figures/hex_sticker.png" width="120" align="right" />
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -89,7 +89,7 @@ create_slides(
 
 You can also create slides with audio playback on each slide. Here, we use a different template that can incorporate audio input:
 
-```{r, eval = FALSE}
+```{r, eval=FALSE}
 # Generate audio from story text:
 audios <- generate_audio(story)
 

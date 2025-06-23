@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# storytelling
+# storytelling <img src="man/figures/hex_sticker.png" width="120" align="right" />
 
 <!-- badges: start -->
 
