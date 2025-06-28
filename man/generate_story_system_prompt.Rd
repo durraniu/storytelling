@@ -4,13 +4,7 @@
 \alias{generate_story_system_prompt}
 \title{Generate System Prompt for Client that generates Stories}
 \usage{
-generate_story_system_prompt(
-  genre = c("romance", "horror", "scifi", "mystery", "thriller", "fantasy", "comedy",
-    "drama", "detective", "satire", "supernatural", "adventure", "western"),
-  struc = c("Hero's Journey", "Three Act Structure", "Seven-Point Story Structure",
-    "Freytag's Pyramid", "Story Circle", "Save The Cat", "Fichtean Curve"),
-  num_paras = 5
-)
+generate_story_system_prompt(genre, struc, num_paras = 5)
 }
 \arguments{
 \item{genre}{Genre of the story}
@@ -24,7 +18,4 @@ System prompt as a string
 }
 \description{
 Generate System Prompt for Client that generates Stories
-}
-\examples{
-generate_story_system_prompt("romance", "Story Circle", 5)
 }

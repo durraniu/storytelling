@@ -16,7 +16,7 @@ generate_image_prompts_system_prompt <- function(num_paras) {
     "For example, if there are two senetences in a story e.g.:
   '[1] Once upon a time, in a small village surrounded by a dense forest, there lived a curious girl named Lily who loved to explore the woods and climb trees.
   [2] One dark and stormy night, as she was wandering deeper into the forest than she had ever gone before, she stumbled upon an old, abandoned mansion that seemed to be hidden behind a thick veil of bushes.'.
-  Then the prompts for generating images should be detailed and consistent like:
+  Then the prompts for generating images should be detailed and consistent like (numbers in brackets here are just to show the prompt number, do not include them in your output):
   '[1] Lily, a girl with long, curly brown hair, bright green eyes, and a small nose, wearing a yellow sundress with white flowers and brown boots, is standing in the middle of a small village surrounded by a dense forest with tall trees, thatched roof cottages, and a cloudy sky, looking excited and eager to explore, with a few villagers in the background.
   [2] Lily, a girl with long, curly brown hair, bright green eyes, and a small nose, wearing a yellow sundress with white flowers and brown boots, is walking alone in a dark and stormy forest with tall trees, their branches swaying in the wind, and flashes of lightning illuminating the sky, looking a bit scared, with an old, abandoned mansion visible in the background, hidden behind a thick veil of bushes.'",
     "There should be one paragraph/sentence containing the prompt per one paragraph of the story.

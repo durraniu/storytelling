@@ -5,31 +5,28 @@
 #' @param num_paras Number of paragraphs in the story
 #'
 #' @returns System prompt as a string
-#' @export
-#'
-#' @examples
-#' generate_story_system_prompt("romance", "Story Circle", 5)
+# @export
 generate_story_system_prompt <- function(
-    genre = c(
-      "romance", "horror", "scifi", "mystery", "thriller",
-      "fantasy", "comedy", "drama", "detective", "satire",
-      "supernatural", "adventure", "western"
-    ),
-    struc = c(
-      "Hero's Journey", "Three Act Structure", "Seven-Point Story Structure",
-      "Freytag's Pyramid", "Story Circle", "Save The Cat", "Fichtean Curve"
-    ),
-    num_paras = 5) {
+    genre,
+    struc,
+    num_paras = 5
+) {
 
-  genre <- match.arg(genre)
-  struc <- match.arg(struc)
+  # genre <- match.arg(genre)
+  # struc <- match.arg(struc)
+
+  # if (genre == "scifi"){
+  #   genre <- "science fiction"
+  # }
 
   paste0(
-    "You tell short stories",
-    ". The genre of the story must be ",
-    genre,
-    ". Use the ", struc, " for the structure of the story. ",
-    "Just tell the story. DO NOT explain the story structure. ",
-    "There must be exactly ", num_paras, " paragraphs of the story."
+    "You are an AI short story generator.",
+    " The genre of the story must be ", genre, ".",
+    " Structure it according to ", struc, ".",
+    " You must return exactly ", num_paras, " paragraphs.",
+    " Do not include introduction, explanation, or any commentary.",
+    " Each paragraph should be its own array/list element in the response.",
+    " Do not join paragraphs with newlines.",
+    " Do not add anything outside of the array; only the array of paragraphs."
   )
 }

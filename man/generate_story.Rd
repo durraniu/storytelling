@@ -7,7 +7,10 @@
 generate_story(
   user_prompt,
   num_paras = 5,
-  system_prompt = NULL,
+  genre = c("adventure", "horror", "scifi", "mystery", "thriller", "fantasy", "comedy",
+    "drama", "detective", "satire", "supernatural", "romance", "western"),
+  struc = c("Hero's Journey", "Three Act Structure", "Seven-Point Story Structure",
+    "Freytag's Pyramid", "Story Circle", "Save The Cat", "Fichtean Curve"),
   chat_fn = ellmer::chat_google_gemini,
   model = "gemini-2.0-flash",
   ...
@@ -18,7 +21,10 @@ generate_story(
 
 \item{num_paras}{Integer. Number of paragraphs in the generated story. Default is 5}
 
-\item{system_prompt}{Character. System prompt for the client that generates stories. Default value is \code{NULL} that will create a system prompt with the function \code{storytelling::generate_story_system_prompt} that instructs the LLM to create an adventure story in a Hero's Journey structure}
+\item{genre}{Genre of the story. One of "adventure", "horror", "scifi", "mystery", "thriller",
+"fantasy", "comedy", "drama", "detective", "satire", "supernatural", "romance" or "western"}
+
+\item{struc}{Structure of the story. One of "Hero's Journey", "Three Act Structure", "Seven-Point Story Structure", "Freytag's Pyramid", "Story Circle", "Save The Cat" or "Fichtean Curve"}
 
 \item{chat_fn}{Ellmer client function. Default is \code{ellmer::chat_google_gemini}}
 
@@ -37,11 +43,6 @@ Generate a Fictional Story with LLM
 library(storytelling)
 user_prompt <- "Tell me a story of a boy who learned to fly."
 generate_story(user_prompt)
-generate_story(user_prompt, 10)
-generate_story(user_prompt, 10, system_prompt = generate_story_system_prompt(
-  genre = "thriller",
-  struc = "Freytag's Pyramid",
-  num_paras = 10
-))
+generate_story(user_prompt, genre = "thriller", struc = "Freytag's Pyramid")
 }
 }

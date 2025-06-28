@@ -26,7 +26,8 @@ req_single_image <- function(prompt,
       prompt = prompt,
       negative_prompt = negative_prompt,
       guidance = 10,
-      num_steps = num_steps
+      num_steps = num_steps,
+      ...
     )) |>
     httr2::req_method("POST")
 }
