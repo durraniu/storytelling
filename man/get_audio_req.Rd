@@ -6,16 +6,22 @@
 \usage{
 get_audio_req(
   text,
-  ACCOUNT_ID = Sys.getenv("CLOUDFLARE_ACCOUNT_ID"),
-  API_KEY = Sys.getenv("CLOUDFLARE_API_KEY")
+  model = c("cloudflare", "google"),
+  CF_ACCOUNT_ID = Sys.getenv("CLOUDFLARE_ACCOUNT_ID"),
+  CF_API_KEY = Sys.getenv("CLOUDFLARE_API_KEY"),
+  G_API_KEY = Sys.getenv("GOOGLE_API_KEY")
 )
 }
 \arguments{
 \item{text}{Text to be converted to speech}
 
-\item{ACCOUNT_ID}{Cloudflare Workers AI Model API account ID}
+\item{model}{Text to speech model. Options are "google" and "cloudflare"}
 
-\item{API_KEY}{Cloudflare Workers AI Model API key}
+\item{CF_ACCOUNT_ID}{Cloudflare Workers AI Model API account ID}
+
+\item{CF_API_KEY}{Cloudflare Workers AI Model API key}
+
+\item{G_API_KEY}{Google API key}
 }
 \value{
 httr2 request.

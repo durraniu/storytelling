@@ -12,6 +12,8 @@ format:
     margin: 0.025  
     padding: 0.05
     scrollable: true
+revealjs-plugins:
+    - appearance
 params:
   story: ""
   imgs: ""
@@ -29,13 +31,13 @@ for (i in 1:n_parts) {
   
   # Left column with story text - maximized for text content
   cat("::: {.column width=\"60%\" .scrollable}\n")
-  cat(params$story[[i]], "\n")
+  cat(paste0('[', params$story[[i]], ']', '{.animate__fadeInLeft data-appear-parent="true" data-split="words"}'), "\n")
   cat(":::\n\n")
   
   # Right column with image as an HTML <img> tag
   cat("::: {.column width=\"40%\"}\n")
   img_html <- paste0("<img src='data:image/jpeg;base64,", params$imgs[[i]], "' width='100%' />")
-  cat(img_html, "\n")
+  cat(paste0('[', img_html, ']', '{.animate__bounceIn .animate__slower}'), "\n")
   cat(":::\n\n")
   
   cat("::::\n\n")
@@ -46,11 +48,11 @@ for (i in 1:n_parts) {
 for (i in (n_parts+1)) {
   cat("## \n\n")
   cat("<div class=\"scrollable\">\n")
-  cat(params$story[[i]], "\n")
+  cat(paste0('[', params$story[[i]], ']', '{.animate__fadeInDown data-appear-parent="true" data-split="words"}'), "\n")
   cat("</div>\n\n")
 
   img_html <- paste0("<img src='data:image/jpeg;base64,", params$imgs[[i]], "' width='50%' style='display: block; margin: auto;' />")
-  cat(img_html, "\n")
+  cat(paste0('[', img_html, ']', '{.animate__bounceIn .animate__slower}'), "\n")
 }
 ```
 
@@ -62,12 +64,12 @@ for (i in (n_parts+2):length_story) {
   # Left column with image
   cat("::: {.column width=\"40%\"}\n")
   img_html <- paste0("<img src='data:image/jpeg;base64,", params$imgs[[i]], "' width='100%' />")
-  cat(img_html, "\n")
+  cat(paste0('[', img_html, ']', '{.animate__bounceIn .animate__slower}'), "\n")
   cat(":::\n\n")
   
   # Right column with story text - maximized for text content
   cat("::: {.column width=\"60%\" .scrollable}\n")
-  cat(params$story[[i]], "\n")
+  cat(paste0('[', params$story[[i]], ']', '{.animate__fadeInRight data-appear-parent="true" data-split="words"}'), "\n")
   cat(":::\n\n")
   
   cat("::::\n\n")

@@ -33,6 +33,9 @@ Quarto revealjs slides
 \description{
 Create revealjs slides using quarto
 }
+\details{
+Running this function will download and install the appearance quarto extension for animating text and images.
+}
 \examples{
 \dontrun{
 library(storytelling)

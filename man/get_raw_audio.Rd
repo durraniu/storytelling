@@ -4,10 +4,12 @@
 \alias{get_raw_audio}
 \title{Extract Raw Audio}
 \usage{
-get_raw_audio(res)
+get_raw_audio(res, model = c("cloudflare", "google"))
 }
 \arguments{
 \item{res}{API response}
+
+\item{model}{Text to speech model. Options are "google" and "cloudflare"}
 }
 \value{
 Audio in binary.

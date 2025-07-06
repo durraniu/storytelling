@@ -4,10 +4,12 @@
 \alias{generate_audio}
 \title{Get audio from story}
 \usage{
-generate_audio(story)
+generate_audio(story, model = c("cloudflare", "google"))
 }
 \arguments{
 \item{story}{Vector of story text}
+
+\item{model}{Text to speech model. Options are "google" and "cloudflare"}
 }
 \value{
 List of audio in binary.

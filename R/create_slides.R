@@ -35,6 +35,10 @@ copy_template <- function(dest_dir, audio = FALSE) {
 #' @param images List of binary images
 #' @param audios List of binary audios
 #'
+#' @details
+#' Running this function will download and install the appearance quarto extension for animating text and images.
+#'
+#'
 #' @returns Quarto revealjs slides
 #' @export
 #'
@@ -63,6 +67,18 @@ create_slides <- function(input_qmd,
                           images,
                           audios) {
 
+
+  # add appearance extension
+  ext_dir <- file.path(dirname(input_qmd), "_extensions", "martinomagnifico", "appearance")
+  if (!dir.exists(ext_dir)) {
+    quarto::quarto_add_extension(
+      "martinomagnifico/quarto-appearance",
+      no_prompt = TRUE,
+      quiet = TRUE
+    )
+  }
+
+  # create slides
   if (length(audios) == 1){
     return(
       quarto::quarto_render(
@@ -108,7 +124,7 @@ create_slides <- function(input_qmd,
     execute_params = list(
       story = story,
       imgs = lapply(images, base64enc::base64encode),
-      audios = lapply(audios, base64enc::base64encode)
+      audios = audios #lapply(audios, base64enc::base64encode)
     ),
     quiet = TRUE
   )
