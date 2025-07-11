@@ -1,6 +1,7 @@
 #' Convert text to speech
 #'
 #' @param text Text to be converted to speech
+#' @param voice Google text-to-speech voice name. Not compatible with `model = "cloudflare"`. One of 36 voices can be specified.
 #' @param model Text to speech model. Options are "google" and "cloudflare"
 #' @param CF_ACCOUNT_ID Cloudflare Workers AI Model API account ID
 #' @param CF_API_KEY Cloudflare Workers AI Model API key
@@ -8,6 +9,7 @@
 #'
 #' @returns httr2 request.
 get_audio_req <- function(text,
+                          voice = NULL,
                           model = c("cloudflare", "google"),
                           CF_ACCOUNT_ID = Sys.getenv("CLOUDFLARE_ACCOUNT_ID"),
                           CF_API_KEY = Sys.getenv("CLOUDFLARE_API_KEY"),
@@ -21,8 +23,12 @@ get_audio_req <- function(text,
 
   if (model == "cloudflare") {
 
+    if (!is.null(voice)){
+      stop("`voice` is compatible with `model = 'google'` only", call. = TRUE)
+    }
+
     if (CF_ACCOUNT_ID == "" | CF_API_KEY == ""){
-      stop("To use the cloudflare text-to-speech, please provide the cloudflare API key and accound ID", call. = TRUE)
+      stop("To use the cloudflare text-to-speech, please provide the cloudflare API key and account ID", call. = TRUE)
     }
 
     url_audio <- paste0("https://api.cloudflare.com/client/v4/accounts/", CF_ACCOUNT_ID, "/ai/run/@cf/myshell-ai/melotts")
@@ -39,6 +45,10 @@ get_audio_req <- function(text,
       if (G_API_KEY == ""){
         stop("To use the google text-to-speech, please provide the google API key", call. = TRUE)
       }
+      if (is.null(voice)){
+        # message("`voice` was not provided; choosing `voice = 'Zephyr'`")
+        voice <- "Zephyr"
+      }
     req <- httr2::request("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-tts:generateContent") |>
       httr2::req_headers(
         `x-goog-api-key` = G_API_KEY,
@@ -49,7 +59,7 @@ get_audio_req <- function(text,
           list(
             parts = list(
               list(
-                text = paste0("Read out loud like you are reading a story to children: ", text)
+                text = paste0("Read out loud like you are narrating a story: ", text)
               )
             )
           )
@@ -58,7 +68,7 @@ get_audio_req <- function(text,
           responseModalities = list("AUDIO"),
           speechConfig = list(
             voiceConfig = list(
-              prebuiltVoiceConfig = list(voiceName = "Kore")
+              prebuiltVoiceConfig = list(voiceName = voice)
             )
           )
         ),
@@ -120,10 +130,14 @@ convert_pcm_to_mp3 <- function(aud){
 #' Get audio from story
 #'
 #' @param story Vector of story text
+#' @param voice Google text-to-speech voice name. Not compatible with `model = "cloudflare"`. One of 36 voices can be specified. See Details.
 #' @param model Text to speech model. Options are "google" and "cloudflare"
 #'
 #' @returns List of audio in binary.
 #' @export
+#' @details
+#' Visit [speech generation voice options](https://ai.google.dev/gemini-api/docs/speech-generation#voices)
+#' for details about the 36 voice options.
 #'
 #' @examples
 #' \dontrun{
@@ -132,11 +146,11 @@ convert_pcm_to_mp3 <- function(aud){
 #' story <- generate_story(user_prompt)
 #' audios <- generate_audio(story)
 #' }
-generate_audio <- function(story, model = c("cloudflare", "google")){
+generate_audio <- function(story, voice = NULL, model = c("cloudflare", "google")){
   if (is.null(story) || length(story) == 0) {
     return(NULL)
   }
-  reqs <- lapply(story, function(x) {get_audio_req(x, model = model)})
+  reqs <- lapply(story, function(x) {get_audio_req(x, model = model, voice = voice)})
   resps <- lapply(reqs, httr2::req_perform)
   # resps <- httr2::req_perform_parallel(reqs, on_error = "continue")
   # All audio

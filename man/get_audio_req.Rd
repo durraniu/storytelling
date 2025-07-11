@@ -6,6 +6,7 @@
 \usage{
 get_audio_req(
   text,
+  voice = NULL,
   model = c("cloudflare", "google"),
   CF_ACCOUNT_ID = Sys.getenv("CLOUDFLARE_ACCOUNT_ID"),
   CF_API_KEY = Sys.getenv("CLOUDFLARE_API_KEY"),
@@ -14,6 +15,8 @@ get_audio_req(
 }
 \arguments{
 \item{text}{Text to be converted to speech}
+
+\item{voice}{Google text-to-speech voice name. Not compatible with \code{model = "cloudflare"}. One of 36 voices can be specified.}
 
 \item{model}{Text to speech model. Options are "google" and "cloudflare"}
 

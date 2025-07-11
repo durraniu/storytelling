@@ -4,10 +4,12 @@
 \alias{generate_audio}
 \title{Get audio from story}
 \usage{
-generate_audio(story, model = c("cloudflare", "google"))
+generate_audio(story, voice = NULL, model = c("cloudflare", "google"))
 }
 \arguments{
 \item{story}{Vector of story text}
+
+\item{voice}{Google text-to-speech voice name. Not compatible with \code{model = "cloudflare"}. One of 36 voices can be specified. See Details.}
 
 \item{model}{Text to speech model. Options are "google" and "cloudflare"}
 }
@@ -16,6 +18,10 @@ List of audio in binary.
 }
 \description{
 Get audio from story
+}
+\details{
+Visit \href{https://ai.google.dev/gemini-api/docs/speech-generation#voices}{speech generation voice options}
+for details about the 36 voice options.
 }
 \examples{
 \dontrun{
