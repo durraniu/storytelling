@@ -2,11 +2,11 @@
 #'
 #' @param image_prompts Vector of prompts for generating images
 #' @param style A character vector specifying the desired style. Choices are:
-#'   "anime", "comics", "lego_movie", "play_doh", "ethereal_fantasy", "isometric",
-#'   "line_art", "origami", "pixel_art", "abstract", "impressionist",
-#'   "renaissance", "watercolor", "biomechanical", "retro_futuristic",
+#'   "anime", "comics", "lego_movie", "play_doh", "ethereal_fantasy",
+#'   "line_art", "origami", "pixel_art", "impressionist",
+#'   "watercolor", "biomechanical", "retro_futuristic",
 #'   "fighting_game", "mario", "pokemon", "street_fighter", "horror",
-#'   "manga", "space", "paper_mache", "tilt_shift".
+#'   "manga", "space", "tilt_shift".
 #'
 #' @returns List of prompt and negative prompt
 format_image_prompts <- function(image_prompts, style) {

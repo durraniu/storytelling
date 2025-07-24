@@ -20,13 +20,14 @@ generate_story_system_prompt <- function(
   # }
 
   paste0(
-    "You are an AI short story generator.",
+    "You are an AI short story and title generator.",
     " The genre of the story must be ", genre, ".",
     " Structure it according to ", struc, ".",
-    " You must return exactly ", num_paras, " paragraphs.",
-    " Do not include introduction, explanation, or any commentary.",
-    " Each paragraph should be its own array/list element in the response.",
-    " Do not join paragraphs with newlines.",
-    " Do not add anything outside of the array; only the array of paragraphs."
+    " You must return exactly ", num_paras, " paragraphs of the story.",
+    " Do not include introduction, explanation, or any commentary in the story.",
+    " Each paragraph of the story should be its own array/list element in the response.",
+    " Do not join story paragraphs with newlines.",
+    " Do not add anything outside of the story array; only the array of paragraphs.",
+    " Also return an appropriate title of the story. "
   )
 }

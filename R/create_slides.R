@@ -68,9 +68,14 @@ create_slides <- function(input_qmd,
                           audios) {
 
 
+  # temporarily switch working dir
+  input_dir <- dirname(input_qmd)
+  original_wd <- getwd()
+  setwd(input_dir)
+  on.exit(setwd(original_wd), add = TRUE)
+
   # add appearance extension
-  ext_dir <- file.path(dirname(input_qmd), "_extensions", "martinomagnifico", "appearance")
-  if (!dir.exists(ext_dir)) {
+  if (!dir.exists(file.path(input_dir, "_extensions", "martinomagnifico", "appearance"))) {
     quarto::quarto_add_extension(
       "martinomagnifico/quarto-appearance",
       no_prompt = TRUE,

@@ -6,10 +6,10 @@
 \usage{
 generate_images(
   image_prompts,
-  style = c("anime", "comics", "lego_movie", "play_doh", "ethereal_fantasy", "isometric",
-    "line_art", "origami", "pixel_art", "abstract", "impressionist", "renaissance",
-    "watercolor", "biomechanical", "retro_futuristic", "fighting_game", "mario",
-    "pokemon", "street_fighter", "horror", "manga", "space", "paper_mache", "tilt_shift"),
+  style = c("anime", "comics", "lego_movie", "play_doh", "ethereal_fantasy", "line_art",
+    "origami", "pixel_art", "impressionist", "watercolor", "biomechanical",
+    "retro_futuristic", "fighting_game", "mario", "pokemon", "street_fighter", "horror",
+    "manga", "space", "tilt_shift"),
   ...
 )
 }
@@ -17,11 +17,11 @@ generate_images(
 \item{image_prompts}{A vector of prompts that describe what to draw}
 
 \item{style}{A character vector specifying the desired style. Choices are:
-"anime", "comics", "lego_movie", "play_doh", "ethereal_fantasy", "isometric",
-"line_art", "origami", "pixel_art", "abstract", "impressionist",
-"renaissance", "watercolor", "biomechanical", "retro_futuristic",
+"anime", "comics", "lego_movie", "play_doh", "ethereal_fantasy",
+"line_art", "origami", "pixel_art", "impressionist",
+"watercolor", "biomechanical", "retro_futuristic",
 "fighting_game", "mario", "pokemon", "street_fighter", "horror",
-"manga", "space", "paper_mache", "tilt_shift".}
+"manga", "space", "tilt_shift".}
 
 \item{...}{Additional named arguments provided to Stable Diffusion model API. See \href{https://developers.cloudflare.com/workers-ai/models/stable-diffusion-xl-base-1.0/}{stable-diffusion-xl-base-1.0 docs} for more details}
 }

@@ -4,11 +4,11 @@
 #' [Follow these instructions](https://developers.cloudflare.com/workers-ai/get-started/rest-api/) to get the account ID and API key.
 #' @param image_prompts A vector of prompts that describe what to draw
 #' @param style A character vector specifying the desired style. Choices are:
-#'   "anime", "comics", "lego_movie", "play_doh", "ethereal_fantasy", "isometric",
-#'   "line_art", "origami", "pixel_art", "abstract", "impressionist",
-#'   "renaissance", "watercolor", "biomechanical", "retro_futuristic",
+#'   "anime", "comics", "lego_movie", "play_doh", "ethereal_fantasy",
+#'   "line_art", "origami", "pixel_art", "impressionist",
+#'   "watercolor", "biomechanical", "retro_futuristic",
 #'   "fighting_game", "mario", "pokemon", "street_fighter", "horror",
-#'   "manga", "space", "paper_mache", "tilt_shift".
+#'   "manga", "space", "tilt_shift".
 #' @param ... Additional named arguments provided to Stable Diffusion model API. See [stable-diffusion-xl-base-1.0 docs](https://developers.cloudflare.com/workers-ai/models/stable-diffusion-xl-base-1.0/) for more details
 #'
 #' @returns List of raw images.
@@ -24,11 +24,11 @@
 #' }
 generate_images <- function(image_prompts,
                             style = c(
-  "anime", "comics", "lego_movie", "play_doh", "ethereal_fantasy", "isometric",
-  "line_art", "origami", "pixel_art", "abstract", "impressionist",
-  "renaissance", "watercolor", "biomechanical", "retro_futuristic",
+  "anime", "comics", "lego_movie", "play_doh", "ethereal_fantasy",
+  "line_art", "origami", "pixel_art", "impressionist",
+  "watercolor", "biomechanical", "retro_futuristic",
   "fighting_game", "mario", "pokemon", "street_fighter", "horror",
-  "manga", "space", "paper_mache", "tilt_shift"
+  "manga", "space", "tilt_shift"
 ),
 ...){
 

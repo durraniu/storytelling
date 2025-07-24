@@ -69,13 +69,17 @@ generate_story <- function(user_prompt,
 
   res <- client$chat_structured(
     user_prompt,
-    type = ellmer::type_array(
-      paste0("Return exactly ",  num_paras,  " paragraphs, as an array. Each array element is a paragraph of the story. Do not return explanations or any text outside the array. Each paragraph must be self-contained, i.e., do not use blank lines or newlines to separate paragraphs inside elements."),
-      items = ellmer::type_string()
+    type = ellmer::type_object(
+        title = ellmer::type_string("Title of the story. One sentence max."),
+        story = ellmer::type_array(
+        paste0("Return exactly ",  num_paras,  " paragraphs, as an array. Each array element is a paragraph of the story. Do not return explanations or any text outside the array. Each paragraph must be self-contained, i.e., do not use blank lines or newlines to separate paragraphs inside elements."),
+        items = ellmer::type_string()
+      )
     )
   )
 
-  as.character(res)
+  res
+  # as.character(res)
   # strsplit(res, "(\\n\\n+|↵+\\s*)")[[1]]
 
 }

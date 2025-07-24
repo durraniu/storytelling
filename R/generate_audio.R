@@ -73,7 +73,8 @@ get_audio_req <- function(text,
           )
         ),
         model = "gemini-2.5-pro-preview-tts" #"gemini-2.5-flash-preview-tts"
-      ))
+      )) |>
+      httr2::req_throttle(capacity = 3)
   }
 
   req
